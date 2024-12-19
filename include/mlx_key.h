@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mlx_key.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 06:19:03 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/19 09:41:58 by cgrasser         ###   ########.fr       */
+/*   Created: 2024/12/19 09:11:15 by cgrasser          #+#    #+#             */
+/*   Updated: 2024/12/19 09:45:23 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#ifndef MLX_KEY_H
+# define MLX_KEY_H
 
-void	usage(void)
-{
-	ft_printf("usage: ./fdf <file.fdf>\n");
-	exit(1);
-}
+# define KEYPRESS 2
+# define KEYPRESSMASK 1
+# define DESTROYNOTIFY 17
+# define KEYRELEASEMASK 2
+# define ESCAPE 65307
 
-int	main(int argc, char *argv[])
-{
-	if (argc != 2)
-		usage();
-	fdf(argv[1]);
-	return (0);
-}
+#endif
