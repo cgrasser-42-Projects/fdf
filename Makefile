@@ -6,7 +6,7 @@
 #    By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 23:22:02 by cgrasser          #+#    #+#              #
-#    Updated: 2024/12/19 09:18:26 by cgrasser         ###   ########.fr        #
+#    Updated: 2024/12/19 14:34:04 by cgrasser         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC_DIR = src
 INC_DIR = include
 OBJ_DIR = build
 
-SRC = main.c fdf.c init_data.c mlx_event.c
+SRC = main.c fdf.c init_data.c mlx_event.c init_data_map.c mlx_destroy_data.c
 
 BOLD = \033[1m
 GREEN = \033[32m

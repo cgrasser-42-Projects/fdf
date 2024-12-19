@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   mlx_destroy_data.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 06:57:44 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/19 14:34:44 by cgrasser         ###   ########.fr       */
+/*   Created: 2024/12/19 14:27:20 by cgrasser          #+#    #+#             */
+/*   Updated: 2024/12/19 14:37:53 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	init_hooks(t_fdf *data)
+static void	ft_map_clear(t_point **coords)
 {
-	mlx_hook(data->window, DESTROYNOTIFY, KEYRELEASEMASK,
-		mlx_loop_end, data->mlx);
-	mlx_hook(data->window, KEYPRESS, KEYPRESSMASK, key_hook, data);
+	int	i;
+
+	i = 0;
+	while (coords[i])
+		free(coords[i++]);
+	free(coords);
 }
 
-void	fdf(char *file_fdf)
+void	mlx_destroy_data(t_fdf *data)
 {
-	t_fdf	data;
-
-	init_data(file_fdf, &data);
-	init_hooks(&data);
-	mlx_loop(data.mlx);
-	mlx_destroy_window(data.mlx, data.window);
-	mlx_destroy_display(data.mlx);
-	mlx_destroy_data(&data);
+	ft_map_clear(data->map->coords);
+	free(data->map);
+	free(data->mlx);
 }
