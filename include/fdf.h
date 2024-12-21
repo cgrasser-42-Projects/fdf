@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 06:23:57 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/21 17:46:25 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/21 23:49:18 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@
 
 typedef struct s_point
 {
-	int	x;
-	int	y;
-	int	z;
-	int	color;
+	float	x;
+	float	y;
+	int		z;
+	int		color;
 }	t_point;
 
 typedef struct s_image
@@ -56,7 +56,7 @@ typedef struct s_plan
 	int		angle_y;
 	int		angle_z;
 	double	alpha;
-	double	thetha;
+	double	tetha;
 	double	gamma;
 }	t_plan;
 
@@ -75,7 +75,8 @@ void	init_data(char *file_fdf, t_fdf *data);
 void	init_data_plan(t_fdf *data);
 void	init_data_map(t_fdf *data, char *file_fdf);
 
-void	rotate_z(t_point *point, int rotation);
+void	rotate_point(t_point *point, t_fdf *data);
+
 void	ft_map_iter(t_map *map, void (*f)(t_point *, int), int rotation);
 
 int		mlx_draw_image(t_fdf *data);

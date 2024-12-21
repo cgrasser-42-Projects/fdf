@@ -6,11 +6,12 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:32:23 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/21 17:45:17 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/21 23:54:02 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <stdio.h>
 
 void	apply_shift(t_point *point, t_plan *plan)
 {
@@ -27,24 +28,27 @@ void	apply_zoom(t_point *point, t_plan *plan)
 
 static void	bresenham(t_point point_a, t_point point_b, t_fdf *data)
 {
-	int	x_step;
-	int	y_step;
-	int	max;
+	float	x_step;
+	float	y_step;
+	int		max;
 
 	apply_zoom(&point_a, data->plan);
 	apply_zoom(&point_b, data->plan);
+	rotate_point(&point_a, data);
+	rotate_point(&point_b, data);
 	apply_shift(&point_a, data->plan);
 	apply_shift(&point_b, data->plan);
 	x_step = point_b.x - point_a.x;
 	y_step = point_b.y - point_a.y;
-	max = fmax(abs(x_step), abs(y_step));
+	max = fmax(fabs(x_step), fabs(y_step));
 	x_step /= max;
 	y_step /= max;
-	while (point_a.x - point_b.x || point_a.y - point_b.y)
+	while ((int)(point_a.x - point_b.x) || (int)(point_a.y - point_b.y))
 	{
-		if (point_a.x >= 0 && point_a.x < WIDTH
-			&& point_a.y >= 0 && point_a.y < HEIGHT)
-			data->image.data[point_a.y * WIDTH + point_a.x] = point_a.color;
+		if ((int)point_a.x >= 0 && (int)point_a.x < WIDTH
+			&& (int)point_a.y >= 0 && (int)point_a.y < HEIGHT)
+			data->image.data[(int)point_a.y * WIDTH + (int)point_a.x]
+				= point_a.color;
 		point_a.x += x_step;
 		point_a.y += y_step;
 	}

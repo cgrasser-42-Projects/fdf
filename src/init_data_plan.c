@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 15:28:39 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/21 17:40:59 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/21 22:46:22 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,7 @@ void	init_data_plan(t_fdf *data)
 	data->plan->angle_x = 0;
 	data->plan->angle_y = 0;
 	data->plan->angle_z = 0;
+	data->plan->alpha = data->plan->angle_x * (M_PI / 180.0);
+	data->plan->tetha = data->plan->angle_y * (M_PI / 180.0);
+	data->plan->gamma = data->plan->angle_z * (M_PI / 180.0);
 }
