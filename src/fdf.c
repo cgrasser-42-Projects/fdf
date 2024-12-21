@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 06:57:44 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/19 14:34:44 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/21 17:43:16 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	fdf(char *file_fdf)
 
 	init_data(file_fdf, &data);
 	init_hooks(&data);
+	mlx_draw_image(&data);
 	mlx_loop(data.mlx);
 	mlx_destroy_window(data.mlx, data.window);
 	mlx_destroy_display(data.mlx);

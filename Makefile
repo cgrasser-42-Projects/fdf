@@ -6,7 +6,7 @@
 #    By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 23:22:02 by cgrasser          #+#    #+#              #
-#    Updated: 2024/12/19 14:34:04 by cgrasser         ###   ########.fr        #
+#    Updated: 2024/12/21 15:37:03 by cgrasser         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC_DIR = src
 INC_DIR = include
 OBJ_DIR = build
 
-SRC = main.c fdf.c init_data.c mlx_event.c init_data_map.c mlx_destroy_data.c
+SRC = main.c fdf.c init_data.c mlx_event.c init_data_map.c mlx_destroy_data.c draw_image.c init_data_plan.c
 
 BOLD = \033[1m
 GREEN = \033[32m
@@ -31,7 +31,7 @@ OBJS = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 MINILIBX_PATH = ./lib/minilibx_linux
 MINILIBX = libmlx.a
-MLX_FLAGS = -lX11 -lXext
+MLX_FLAGS = -lX11 -lXext -lm
 
 LIBFT_PATH = ./lib/libft
 LIBFT = libft.a
