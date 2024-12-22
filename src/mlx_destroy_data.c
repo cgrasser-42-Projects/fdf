@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 14:27:20 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/19 14:37:53 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/22 13:06:36 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	mlx_destroy_data(t_fdf *data)
 	ft_map_clear(data->map->coords);
 	free(data->map);
 	free(data->mlx);
+	free(data->plan);
 }
