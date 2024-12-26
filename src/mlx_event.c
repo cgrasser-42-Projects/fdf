@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 08:42:48 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/22 00:38:06 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/26 16:12:21 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,19 @@ int	key_plan_iso_hook(int key, t_fdf *data)
 	return (mlx_draw_image(data));
 }
 
+int	key_shift_hook(int key, t_fdf *data)
+{
+	if (key == UP)
+		data->plan->shift_y -= 5;
+	else if (key == DOWN)
+		data->plan->shift_y += 5;
+	else if (key == LEFT)
+		data->plan->shift_x -= 5;
+	else
+		data->plan->shift_x += 5;
+	return (mlx_draw_image(data));
+}
+
 int	key_hook(int key, t_fdf *data)
 {
 	if (key == ESCAPE)
@@ -70,5 +83,7 @@ int	key_hook(int key, t_fdf *data)
 		return (key_plan_hook(key, data));
 	if (key == I || key == O)
 		return (key_plan_iso_hook(key, data));
+	if (key == UP || key == DOWN || key == LEFT || key == RIGHT)
+		return (key_shift_hook(key, data));
 	return (0);
 }
