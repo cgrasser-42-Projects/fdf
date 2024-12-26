@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 06:23:57 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/21 23:49:18 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/26 21:14:42 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_map
 typedef struct s_plan
 {
 	double	zoom;
+	int 	z_div;
 	int		shift_x;
 	int		shift_y;
 	int		angle_x;
@@ -70,6 +71,7 @@ typedef struct s_fdf
 }	t_fdf;
 
 int		key_hook(int key, t_fdf *data);
+int		scroll_hook(int button, int x, int y, t_fdf *data);
 
 void	init_data(char *file_fdf, t_fdf *data);
 void	init_data_plan(t_fdf *data);

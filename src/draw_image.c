@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:32:23 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/21 23:54:02 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/26 21:16:51 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	apply_zoom(t_point *point, t_plan *plan)
 	point->x *= plan->zoom;
 	point->y *= plan->zoom;
 	point->z *= plan->zoom;
+	point->z /= plan->z_div;
 }
 
 static void	bresenham(t_point point_a, t_point point_b, t_fdf *data)

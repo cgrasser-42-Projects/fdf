@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 15:28:39 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/21 22:46:22 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/26 21:15:25 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	init_data_plan(t_fdf *data)
 {
 	data->plan = malloc(sizeof(t_plan));
 	init_data_zoom(data);
+	data->plan->z_div = 10;
 	data->plan->shift_x = (WIDTH - data->map->x * data->plan->zoom) / 2;
 	data->plan->shift_y = (HEIGHT - data->map->y * data->plan->zoom) / 2;
 	data->plan->angle_x = 0;

@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 08:42:48 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/26 16:12:21 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/26 21:38:49 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,27 @@ int	key_plan_hook(int key, t_fdf *data)
 	return (mlx_draw_image(data));
 }
 
+int scroll_hook(int button, int x, int y, t_fdf *data)
+{
+	(void) x;
+	(void) y;
+	if (button == 4 || button == 5)
+	{
+		if (button == 4)
+			data->plan->zoom++;
+		if (button == 5)
+			data->plan->zoom--;
+		return (mlx_draw_image(data));
+	}
+	return (0);
+}
+
 int	key_plan_iso_hook(int key, t_fdf *data)
 {
 	if (key == I)
 	{
-		data->plan->angle_x = 60;
-		data->plan->angle_y = 345;
+		data->plan->angle_x = 30;
+		data->plan->angle_y = 330;
 		data->plan->angle_z = 30;
 	}
 	if (key == O)
@@ -74,6 +89,17 @@ int	key_shift_hook(int key, t_fdf *data)
 	return (mlx_draw_image(data));
 }
 
+int	key_zdiv_hook(int key, t_fdf *data)
+{
+	if (key == PLUS)
+		data->plan->z_div++;
+	if (key == MINUS)
+		data->plan->z_div--;
+	if (data->plan->z_div == 0)
+		data->plan->z_div = 1;
+	return (mlx_draw_image(data));
+}
+
 int	key_hook(int key, t_fdf *data)
 {
 	if (key == ESCAPE)
@@ -85,5 +111,7 @@ int	key_hook(int key, t_fdf *data)
 		return (key_plan_iso_hook(key, data));
 	if (key == UP || key == DOWN || key == LEFT || key == RIGHT)
 		return (key_shift_hook(key, data));
+	if (key == PLUS || key == MINUS)
+		return (key_zdiv_hook(key, data));
 	return (0);
 }
