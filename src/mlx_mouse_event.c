@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:37:07 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/27 13:13:44 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/27 15:09:59 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	scroll_hook(int button, int x, int y, t_fdf *data)
 			data->plan->zoom++;
 		if (button == 5)
 			data->plan->zoom--;
-		return (mlx_draw_image(data));
+		return (mlx_draw_window(data));
 	}
 	return (0);
 }

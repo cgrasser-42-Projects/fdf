@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:32:23 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/26 21:16:51 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:41:38 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ static void	bresenham(t_point point_a, t_point point_b, t_fdf *data)
 	y_step /= max;
 	while ((int)(point_a.x - point_b.x) || (int)(point_a.y - point_b.y))
 	{
-		if ((int)point_a.x >= 0 && (int)point_a.x < WIDTH
-			&& (int)point_a.y >= 0 && (int)point_a.y < HEIGHT)
-			data->image.data[(int)point_a.y * WIDTH + (int)point_a.x]
+		if ((int)point_a.x >= 0 && (int)point_a.x < I_WIDTH
+			&& (int)point_a.y >= 0 && (int)point_a.y < I_HEIGHT)
+			data->image.data[(int)point_a.y * I_WIDTH + (int)point_a.x]
 				= point_a.color;
 		point_a.x += x_step;
 		point_a.y += y_step;
@@ -80,8 +80,8 @@ static void	draw_map(t_fdf *data)
 
 int	mlx_draw_image(t_fdf *data)
 {
-	ft_bzero(data->image.data, HEIGHT * WIDTH * sizeof(int));
+	ft_bzero(data->image.data, I_HEIGHT * I_WIDTH * sizeof(int));
 	draw_map(data);
 	return (mlx_put_image_to_window(data->mlx, data->window,
-			data->image.img, 0, 0));
+			data->image.img, 300, 100));
 }
