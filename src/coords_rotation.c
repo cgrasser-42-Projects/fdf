@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:41:19 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/21 23:59:11 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:01:22 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,25 @@ static void	rotate_x(t_point *point, t_fdf *data)
 	new_z = y_translated * sin(alpha) + point->z * cos(alpha);
 	point->y = new_y + (int)((data->map->y * data->plan->zoom) / 2);
 	point->z = new_z;
+}
+
+void	set_valid_angle(t_plan *plan)
+{
+	if (plan->angle_x > 360)
+		plan->angle_x = 1;
+	else if (plan->angle_x < 0)
+		plan->angle_x = 359;
+	if (plan->angle_y > 360)
+		plan->angle_y = 1;
+	else if (plan->angle_y < 0)
+		plan->angle_y = 359;
+	if (plan->angle_z > 360)
+		plan->angle_z = 1;
+	else if (plan->angle_z < 0)
+		plan->angle_z = 359;
+	plan->tetha = plan->angle_y * (M_PI / 180.0);
+	plan->alpha = plan->angle_x * (M_PI / 180.0);
+	plan->gamma = plan->angle_z * (M_PI / 180.0);
 }
 
 void	rotate_point(t_point *point, t_fdf *data)

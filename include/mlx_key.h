@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 09:11:15 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/26 21:28:59 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/27 12:27:39 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@
 # define H 104
 # define I 105
 # define O 111
+# define P 112
+# define L 108
 # define PLUS 61
 # define MINUS 45
 

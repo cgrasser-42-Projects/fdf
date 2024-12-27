@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 06:23:57 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/26 21:14:42 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:14:36 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_map
 typedef struct s_plan
 {
 	double	zoom;
-	int 	z_div;
+	int		z_div;
 	int		shift_x;
 	int		shift_y;
 	int		angle_x;
@@ -78,8 +78,12 @@ void	init_data_plan(t_fdf *data);
 void	init_data_map(t_fdf *data, char *file_fdf);
 
 void	rotate_point(t_point *point, t_fdf *data);
+void	set_valid_angle(t_plan *plan);
 
-void	ft_map_iter(t_map *map, void (*f)(t_point *, int), int rotation);
+void	isometric(t_fdf *data);
+void	orthographic(t_fdf *data);
+void	side_vue(t_fdf *data);
+void	front_vue(t_fdf *data);
 
 int		mlx_draw_image(t_fdf *data);
 void	mlx_destroy_data(t_fdf *data);
