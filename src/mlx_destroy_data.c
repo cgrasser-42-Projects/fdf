@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 14:27:20 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/27 15:36:11 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/28 12:30:57 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@ static void	ft_map_clear(t_point **coords)
 	while (coords[i])
 		free(coords[i++]);
 	free(coords);
+}
+
+void	clear_values_menu(t_menu *menu)
+{
+	free(menu->x);
+	free(menu->y);
+	free(menu->z);
+	free(menu->zoom);
+	free(menu->shift_x);
+	free(menu->shift_y);
+	free(menu->z_div);
 }
 
 void	mlx_destroy_data(t_fdf *data)

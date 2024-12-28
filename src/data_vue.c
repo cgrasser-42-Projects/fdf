@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 22:12:04 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/27 15:24:24 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/28 13:03:49 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	reset_plan(t_fdf *data)
 
 void	isometric(t_fdf *data)
 {
+	data->menu->vue = ISO;
 	data->plan->angle_x = 30;
 	data->plan->angle_y = 330;
 	data->plan->angle_z = 30;
@@ -41,6 +42,7 @@ void	isometric(t_fdf *data)
 
 void	orthographic(t_fdf *data)
 {
+	data->menu->vue = ORTHO;
 	data->plan->angle_x = 0;
 	data->plan->angle_y = 0;
 	data->plan->angle_z = 0;
@@ -49,15 +51,17 @@ void	orthographic(t_fdf *data)
 
 void	side_vue(t_fdf *data)
 {
+	data->menu->vue = SIDE;
 	data->plan->angle_x = 0;
-	data->plan->angle_y = 0;
+	data->plan->angle_y = 90;
 	data->plan->angle_z = 0;
 	reset_plan(data);
 }
 
 void	front_vue(t_fdf *data)
 {
-	data->plan->angle_x = 0;
+	data->menu->vue = FRONT;
+	data->plan->angle_x = 90;
 	data->plan->angle_y = 0;
 	data->plan->angle_z = 0;
 	reset_plan(data);

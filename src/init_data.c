@@ -6,13 +6,13 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:54:57 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/27 15:42:47 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/28 13:05:15 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_print_coords(t_map *map)
+/*static void	ft_print_coords(t_map *map)
 {
 	int	x;
 	int	y;
@@ -26,13 +26,17 @@ void	ft_print_coords(t_map *map)
 		ft_printf("\n");
 		y++;
 	}
-}
+}*/
 
 void	init_menu(t_fdf *data)
 {
 	data->menu = malloc(sizeof(t_menu));
+	data->menu->vue = ORTHO;
 	data->menu->img = mlx_xpm_file_to_image(data->mlx, "resources/menu.xpm",
 			&data->menu->x_img, &data->menu->y_img);
+	data->menu->button = mlx_xpm_file_to_image(data->mlx,
+			"resources/button.xpm",
+			&data->menu->x_button, &data->menu->y_button);
 	data->menu->x = ft_itoa(data->plan->angle_x);
 	data->menu->y = ft_itoa(data->plan->angle_y);
 	data->menu->z = ft_itoa(data->plan->angle_z);

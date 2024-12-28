@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 06:57:44 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/27 15:41:25 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/27 17:11:30 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	init_hooks(t_fdf *data)
 {
 	mlx_hook(data->window, DESTROYNOTIFY, KEYRELEASEMASK,
 		mlx_loop_end, data->mlx);
-	mlx_mouse_hook(data->window, scroll_hook, data);
+	mlx_mouse_hook(data->window, mouse_hook, data);
 	mlx_hook(data->window, KEYPRESS, KEYPRESSMASK, key_hook, data);
 }
 
@@ -30,6 +30,7 @@ void	fdf(char *file_fdf)
 	mlx_loop(data.mlx);
 	mlx_destroy_image(data.mlx, data.image.img);
 	mlx_destroy_image(data.mlx, data.menu->img);
+	mlx_destroy_image(data.mlx, data.menu->button);
 	mlx_destroy_window(data.mlx, data.window);
 	mlx_destroy_display(data.mlx);
 	mlx_destroy_data(&data);
