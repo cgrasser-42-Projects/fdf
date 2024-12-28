@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 09:11:15 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/27 12:27:39 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/28 14:34:00 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define KEYRELEASEMASK 2
 
 # define ESCAPE 65307
+# define SPACE 32
 
 # define UP 65362
 # define DOWN 65364

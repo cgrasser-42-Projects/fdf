@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 08:42:48 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/28 13:14:17 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/28 14:37:05 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,10 @@ static int	key_zdiv_hook(int key, t_fdf *data)
 
 int	key_hook(int key, t_fdf *data)
 {
+	if (key == SPACE && data->menu->is_active == 0)
+		return (data->menu->is_active = 1, mlx_draw_window(data));
+	if (data->menu->is_active == 0)
+		return (0);
 	if (key == ESCAPE)
 		mlx_loop_end(data->mlx);
 	else if (key == R || key == T || key == D

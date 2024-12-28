@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 06:23:57 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/28 12:34:28 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/28 14:41:35 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,10 @@ typedef struct s_plan
 typedef struct s_menu
 {
 	t_vue	vue;
+	int		x_main;
+	int		y_main;
+	char	*main;
+	int		is_active;
 	int		x_img;
 	int		y_img;
 	char	*img;

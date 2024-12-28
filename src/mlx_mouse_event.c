@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:37:07 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/28 13:41:47 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/28 14:32:49 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int	scroll_hook(int button, int x, int y, t_fdf *data)
 
 int	mouse_hook(int button, int x, int y, t_fdf *data)
 {
+	if (data->menu->is_active == 0)
+		return (0);
 	if (button == 4 || button == 5)
 		return (scroll_hook(button, x, y, data));
 	if (button == 1)

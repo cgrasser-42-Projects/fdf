@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:54:57 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/28 13:05:15 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/28 14:41:32 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@
 void	init_menu(t_fdf *data)
 {
 	data->menu = malloc(sizeof(t_menu));
+	data->menu->is_active = 0;
 	data->menu->vue = ORTHO;
+	data->menu->main = mlx_xpm_file_to_image(data->mlx,
+			"resources/main_menu.xpm",
+			&data->menu->x_main, &data->menu->y_main);
 	data->menu->img = mlx_xpm_file_to_image(data->mlx, "resources/menu.xpm",
 			&data->menu->x_img, &data->menu->y_img);
 	data->menu->button = mlx_xpm_file_to_image(data->mlx,
