@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:37:07 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/28 14:32:49 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/28 14:48:25 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	scroll_hook(int button, int x, int y, t_fdf *data)
 	if (button == 5)
 	{
 		data->plan->zoom--;
+		if (data->plan->zoom < 1)
+			return (data->plan->zoom = 1, 0);
 		data->plan->shift_x += data->map->x / 2;
 		data->plan->shift_y += data->map->y / 2;
 	}
