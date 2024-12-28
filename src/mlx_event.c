@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 08:42:48 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/27 15:09:45 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/28 13:14:17 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ static int	key_vue_hook(int key, t_fdf *data)
 static int	key_shift_hook(int key, t_fdf *data)
 {
 	if (key == UP)
-		data->plan->shift_y -= 5;
+		data->plan->shift_y -= 15;
 	else if (key == DOWN)
-		data->plan->shift_y += 5;
+		data->plan->shift_y += 15;
 	else if (key == LEFT)
-		data->plan->shift_x -= 5;
+		data->plan->shift_x -= 15;
 	else if (key == RIGHT)
-		data->plan->shift_x += 5;
+		data->plan->shift_x += 15;
 	return (mlx_draw_window(data));
 }
 

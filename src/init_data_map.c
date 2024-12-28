@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 10:21:28 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/26 15:48:47 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/28 13:26:17 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ void	init_map_x_y(t_map *map, char *file_fdf)
 
 	fd = open(file_fdf, O_RDONLY);
 	if (fd < 0)
+	{
+		ft_printf("Error file\n");
+		free(map);
 		exit(1);
+	}
 	line = get_next_line(fd);
 	nums = ft_split(line, " \n");
 	map->x = ft_strslen(nums);
