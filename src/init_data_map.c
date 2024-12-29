@@ -6,11 +6,25 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 10:21:28 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/29 16:22:27 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/29 17:05:05 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+static char	*base(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (ft_strchr("abcdef", str[i]))
+			return ("0123456789abcdef");
+		i++;
+	}
+	return ("0123456789ABCDEF");
+}
 
 void	init_map_x_y(t_map *map, char *file_fdf)
 {
@@ -66,7 +80,7 @@ void	init_map_points(t_point *points, int y, char *line)
 		points[x].z = ft_atoi(nums[x]);
 		color = ft_strnstr(nums[x], ",0x", ft_strlen(nums[x]));
 		if (color)
-			points[x].color = ft_atoi_base(color + 3, "0123456789ABCDEF");
+			points[x].color = ft_atoi_base(color +3, base(color +3));
 		else
 			points[x].color = 0xffffff;
 		free(nums[x]);
