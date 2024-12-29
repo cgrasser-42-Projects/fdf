@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 10:21:28 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/28 13:26:17 by cgrasser         ###   ########.fr       */
+/*   Updated: 2024/12/29 16:22:27 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	init_map_points(t_point *points, int y, char *line)
 		points[x].z = ft_atoi(nums[x]);
 		color = ft_strnstr(nums[x], ",0x", ft_strlen(nums[x]));
 		if (color)
-			points[x].color = ft_atoi_base(color + 3, "0123456789abcdef");
+			points[x].color = ft_atoi_base(color + 3, "0123456789ABCDEF");
 		else
 			points[x].color = 0xffffff;
 		free(nums[x]);
