@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:37:07 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/28 14:48:25 by cgrasser         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:27:35 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	reset_vue(t_fdf *data)
 		side_vue(data);
 	else if (data->menu->vue == FRONT)
 		front_vue(data);
-	return (mlx_draw_window(data));
+	return (0);
 }
 
 int	button_vue(int x, int y, t_fdf *data)
@@ -58,13 +58,16 @@ int	scroll_hook(int button, int x, int y, t_fdf *data)
 		data->plan->shift_x += data->map->x / 2;
 		data->plan->shift_y += data->map->y / 2;
 	}
-	return (mlx_draw_window(data));
+	return (0);
 }
 
 int	mouse_hook(int button, int x, int y, t_fdf *data)
 {
 	if (data->menu->is_active == 0)
 		return (0);
+	if (data->is_print == 0)
+		return (0);
+	data->is_print = 0;
 	if (button == 4 || button == 5)
 		return (scroll_hook(button, x, y, data));
 	if (button == 1)

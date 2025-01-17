@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 06:23:57 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/28 14:41:35 by cgrasser         ###   ########.fr       */
+/*   Updated: 2025/01/08 23:02:42 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ typedef struct s_menu
 
 typedef struct s_fdf
 {
+	int		is_print;
 	void	*mlx;
 	void	*window;
 	t_menu	*menu;

@@ -6,7 +6,7 @@
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 08:42:48 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/12/28 14:37:05 by cgrasser         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:41:53 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	key_rotation_hook(int key, t_fdf *data)
 	else if (key == H)
 		data->plan->angle_y++;
 	set_valid_angle(data->plan);
-	return (mlx_draw_window(data));
+	return (0);
 }
 
 static int	key_vue_hook(int key, t_fdf *data)
@@ -40,7 +40,7 @@ static int	key_vue_hook(int key, t_fdf *data)
 		front_vue(data);
 	else if (key == L)
 		side_vue(data);
-	return (mlx_draw_window(data));
+	return (0);
 }
 
 static int	key_shift_hook(int key, t_fdf *data)
@@ -53,7 +53,7 @@ static int	key_shift_hook(int key, t_fdf *data)
 		data->plan->shift_x -= 15;
 	else if (key == RIGHT)
 		data->plan->shift_x += 15;
-	return (mlx_draw_window(data));
+	return (0);
 }
 
 static int	key_zdiv_hook(int key, t_fdf *data)
@@ -64,13 +64,16 @@ static int	key_zdiv_hook(int key, t_fdf *data)
 		data->plan->z_div--;
 	if (data->plan->z_div == 0)
 		data->plan->z_div = 1;
-	return (mlx_draw_window(data));
+	return (0);
 }
 
 int	key_hook(int key, t_fdf *data)
 {
 	if (key == SPACE && data->menu->is_active == 0)
-		return (data->menu->is_active = 1, mlx_draw_window(data));
+		return (data->menu->is_active = 1, 0);
+	if (data->is_print == 0)
+		return (0);
+	data->is_print = 0;
 	if (data->menu->is_active == 0)
 		return (0);
 	if (key == ESCAPE)
